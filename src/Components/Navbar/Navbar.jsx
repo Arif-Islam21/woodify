@@ -1,4 +1,7 @@
 import logo from "/wood.jpg";
+import "react-tooltip/dist/react-tooltip.css";
+import { Tooltip } from "react-tooltip";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const links = (
@@ -39,12 +42,18 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <div className=" flex items-center gap-4">
-          <img className="h-12 rounded-full" src={logo} alt="" />
+        <Link to={"/"} className=" flex items-center gap-4">
+          <img
+            className="h-12 hidden lg:block rounded-full"
+            src={logo}
+            alt=""
+          />
           <div>
-            <h4 className="text-3xl font-bold font-rancho">Woodify</h4>
+            <h4 className="text-3xl hidden lg:block font-bold font-rancho">
+              Woodify
+            </h4>
           </div>
-        </div>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
@@ -57,9 +66,12 @@ const Navbar = () => {
         >
           <div className="w-10 rounded-full">
             <img
+              data-tooltip-id="my-tooltip"
+              data-tooltip-content="Arif"
               alt="Tailwind CSS Navbar component"
               src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-            />
+            />{" "}
+            <Tooltip id="my-tooltip" />
           </div>
         </div>
       </div>
