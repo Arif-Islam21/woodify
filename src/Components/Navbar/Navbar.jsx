@@ -75,14 +75,8 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu bg-[#795548] menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            className="menu bg-[#795548b7] menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
-            <li>
-              <a className="">Profile</a>
-            </li>
-            <li>
-              <a>Settings</a>
-            </li>
             <li>
               <a>Logout</a>
             </li>
