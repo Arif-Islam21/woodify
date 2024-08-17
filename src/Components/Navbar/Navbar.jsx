@@ -58,21 +58,35 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
-      <div className="navbar  navbar-end">
+      <div className="navbar navbar-end">
         <div
           tabIndex={0}
           role="button"
-          className="btn btn-ghost btn-circle avatar"
+          className="btn btn-ghost dropdown dropdown-end btn-circle avatar"
         >
           <div className="w-10 rounded-full">
+            <Tooltip id="my-tooltip" place="left" />
             <img
               data-tooltip-id="my-tooltip"
               data-tooltip-content="Arif"
               alt="Tailwind CSS Navbar component"
               src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
             />{" "}
-            <Tooltip id="my-tooltip" />
           </div>
+          <ul
+            tabIndex={0}
+            className="menu bg-[#795548] menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow"
+          >
+            <li>
+              <a className="">Profile</a>
+            </li>
+            <li>
+              <a>Settings</a>
+            </li>
+            <li>
+              <a>Logout</a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
