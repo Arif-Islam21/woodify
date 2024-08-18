@@ -1,6 +1,9 @@
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import wooden1 from "../../../public/wood1.avif";
+import wooden2 from "../../../public/wood2.avif";
+import wooden3 from "../../../public/wooden3.avif";
 
 // Import Swiper styles
 import "swiper/css";
@@ -30,28 +33,13 @@ export default function Banner() {
         modules={[EffectFade, Autoplay, Navigation, Pagination]}
       >
         <SwiperSlide>
-          <img
-            className="w-full"
-            src="https://swiperjs.com/demos/images/nature-1.jpg"
-          />
+          <img className="w-full h-[60vh]" src={wooden1} />
         </SwiperSlide>
         <SwiperSlide>
-          <img
-            className="w-full"
-            src="https://swiperjs.com/demos/images/nature-2.jpg"
-          />
+          <img className="w-full h-[60vh]" src={wooden2} />
         </SwiperSlide>
         <SwiperSlide>
-          <img
-            className="w-full"
-            src="https://swiperjs.com/demos/images/nature-3.jpg"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            className="w-full"
-            src="https://swiperjs.com/demos/images/nature-4.jpg"
-          />
+          <img className="w-full h-[60vh]" src={wooden3} />
         </SwiperSlide>
       </Swiper>
     </>
