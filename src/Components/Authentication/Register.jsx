@@ -58,8 +58,8 @@ const Register = () => {
   };
 
   return (
-    <section className="bg-white py-8 dark:bg-gray-900">
-      <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
+    <section className="bg-white dark:bg-gray-900">
+      <div className="container flex items-center justify-center min-h-screen px-6 pb-20 mx-auto">
         <form onSubmit={handleRegister} className="w-full max-w-md">
           <div className="flex justify-center mx-auto">
             <img
@@ -70,6 +70,12 @@ const Register = () => {
           </div>
 
           <div className="flex items-center justify-center mt-6">
+            <Link
+              to={"/login"}
+              class="w-1/3 pb-4 font-medium text-center text-gray-500 capitalize border-b dark:border-gray-400 dark:text-gray-300"
+            >
+              sign in
+            </Link>
             <a
               href="#"
               className="w-1/3 pb-4 font-medium text-center text-gray-800 capitalize border-b-2 border-blue-500 dark:border-blue-400 dark:text-white"
@@ -211,15 +217,6 @@ const Register = () => {
             <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
               Register
             </button>
-
-            <div className="mt-6 text-center ">
-              <Link
-                to={"/login"}
-                className="text-sm text-blue-500 hover:underline dark:text-blue-400"
-              >
-                Already have an account?
-              </Link>
-            </div>
           </div>
         </form>
       </div>
