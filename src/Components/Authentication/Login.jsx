@@ -2,27 +2,70 @@ import { useContext } from "react";
 import logo from "/wood.jpg";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Login = () => {
-  const { signInWithGoogle, signInWithGithub } = useContext(AuthContext);
+  const { signInWithGoogle, signInWithGithub, loginUser } =
+    useContext(AuthContext);
 
   const googleLogin = () => {
     signInWithGoogle()
       .then((result) => {
-        console.log(result.user);
+        Swal.fire({
+          title: "User Created Successfully",
+          text: "Congrats! You have created your account Successfully",
+          icon: "success",
+        });
       })
       .catch((error) => {
-        console.error(error);
+        Swal.fire({
+          icon: "error",
+          title: "User not created",
+          text: "Something went wrong!",
+          footer: '<a href="#">Why do I have this issue?</a>',
+        });
       });
   };
 
   const githubLogin = () => {
     signInWithGithub()
       .then((result) => {
-        console.log(result.user);
+        Swal.fire({
+          title: "User Created Successfully",
+          text: "Congrats! You have created your account Successfully",
+          icon: "success",
+        });
       })
       .catch((error) => {
-        console.error(error);
+        Swal.fire({
+          icon: "error",
+          title: "User not created",
+          text: "Something went wrong!",
+          footer: '<a href="#">Why do I have this issue?</a>',
+        });
+      });
+  };
+
+  const handleEmailLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    loginUser(email, password)
+      .then((result) => {
+        Swal.fire({
+          title: "User Created Successfully",
+          text: "Congrats! You have created your account Successfully",
+          icon: "success",
+        });
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "User not created",
+          text: "Something went wrong!",
+          footer: '<a href="#">Why do I have this issue?</a>',
+        });
       });
   };
 
@@ -32,13 +75,14 @@ const Login = () => {
         <img className="w-auto h-7 sm:h-8" src={logo} alt="" />
       </div>
 
-      <form className="mt-6">
+      <form onSubmit={handleEmailLogin} className="mt-6">
         <div>
           <label className="block text-sm text-gray-800 dark:text-gray-200">
-            Username
+            Email
           </label>
           <input
-            type="text"
+            type="email"
+            name="email"
             className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
           />
         </div>
@@ -58,12 +102,13 @@ const Login = () => {
 
           <input
             type="password"
+            name="password"
             className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
           />
         </div>
 
         <div className="mt-6">
-          <button className="w-full px-6 py-2.5 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">
+          <button className="w-full px-6 py-2.5 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#795548] rounded-lg hover:bg-[#79554896] focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">
             Sign In
           </button>
         </div>
