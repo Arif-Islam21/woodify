@@ -2,8 +2,32 @@ import logo from "/wood.jpg";
 import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        Swal.fire({
+          title: "User Logged Out Successfully",
+          text: "Congrats! You have logged out Successfully",
+          icon: "success",
+        });
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "User not logged out",
+          text: "Something went wrong!",
+          footer: '<a href="#">Why do I have this issue?</a>',
+        });
+      });
+  };
+
   const links = (
     <>
       <li>
@@ -59,29 +83,39 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar navbar-end">
-        <div
-          tabIndex={0}
-          role="button"
-          className="btn btn-ghost dropdown dropdown-end btn-circle avatar"
-        >
-          <div className="w-10 rounded-full">
-            <Tooltip id="my-tooltip" place="left" />
-            <img
-              data-tooltip-id="my-tooltip"
-              data-tooltip-content="Arif"
-              alt="Tailwind CSS Navbar component"
-              src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-            />{" "}
-          </div>
-          <ul
+        {user && (
+          <div
             tabIndex={0}
-            className="menu bg-[#795548b7] menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            role="button"
+            className="btn btn-ghost dropdown dropdown-end btn-circle avatar"
           >
-            <li>
-              <a>Logout</a>
-            </li>
-          </ul>
-        </div>
+            <div className="w-10 rounded-full">
+              <Tooltip id="my-tooltip" place="left" />
+              <img
+                data-tooltip-id="my-tooltip"
+                data-tooltip-content={user?.displayName}
+                alt="Tailwind CSS Navbar component"
+                src={user?.photoURL}
+              />{" "}
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu bg-[#795548b7] menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            >
+              <li>
+                <button onClick={handleLogOut}>Logout</button>
+              </li>
+            </ul>
+          </div>
+        )}
+        {!user && (
+          <Link
+            to={"/login"}
+            className="btn btn-outline bg-white font-bold px-6 text-[#795548]"
+          >
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );

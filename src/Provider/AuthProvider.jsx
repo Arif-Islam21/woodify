@@ -7,6 +7,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
+  signOut,
 } from "firebase/auth";
 
 export const AuthContext = createContext();
@@ -36,11 +37,18 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, githubProvider);
   };
 
+  const logOut = () => {
+    setLoading(true);
+    return signOut(auth);
+  };
+
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
-        console.log("current user", currentUser);
+        console.log(currentUser);
+      } else {
+        console.log("User Is signed out");
       }
     });
 
@@ -49,7 +57,14 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
-  const info = { createUser, signInWithGoogle, signInWithGithub, loginUser };
+  const info = {
+    user,
+    createUser,
+    signInWithGoogle,
+    signInWithGithub,
+    loginUser,
+    logOut,
+  };
 
   return <AuthContext.Provider value={info}>{children}</AuthContext.Provider>;
 };

@@ -54,15 +54,15 @@ const Login = () => {
     loginUser(email, password)
       .then((result) => {
         Swal.fire({
-          title: "User Created Successfully",
-          text: "Congrats! You have created your account Successfully",
+          title: "User Logged In Successfully",
+          text: "Congrats! You have Logged In your account Successfully",
           icon: "success",
         });
       })
       .catch((error) => {
         Swal.fire({
           icon: "error",
-          title: "User not created",
+          title: "User not Logged In",
           text: "Something went wrong!",
           footer: '<a href="#">Why do I have this issue?</a>',
         });
