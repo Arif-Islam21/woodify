@@ -58,7 +58,7 @@ const Register = () => {
   };
 
   return (
-    <section className="bg-white dark:bg-gray-900">
+    <section className="bg-white dark:bg-[#79554883]">
       <div className="container flex items-center justify-center min-h-screen px-6 pb-20 mx-auto">
         <form onSubmit={handleRegister} className="w-full max-w-md">
           <div className="flex justify-center mx-auto">

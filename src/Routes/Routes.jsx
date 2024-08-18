@@ -3,6 +3,7 @@ import Root from "./Root";
 import Home from "../Components/Home/Home";
 import Login from "../Components/Authentication/Login";
 import Register from "../Components/Authentication/Register";
+import AddCraft from "../Components/AddCraft/AddCraft";
 
 const router = createBrowserRouter([
   {
@@ -18,8 +19,12 @@ const router = createBrowserRouter([
         element: <Login></Login>,
       },
       {
-        path: "register",
+        path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/addCraft",
+        element: <AddCraft></AddCraft>,
       },
     ],
   },

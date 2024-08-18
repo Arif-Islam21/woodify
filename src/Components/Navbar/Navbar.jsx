@@ -30,17 +30,20 @@ const Navbar = () => {
 
   const links = (
     <>
-      <li>
-        <a>Item 1</a>
-      </li>
-      <li>
-        <a>Item 3</a>
-      </li>
+      <Link to={"/"} className="btn">
+        Home
+      </Link>
+      <Link to={"/"} className="btn">
+        Art & Craft
+      </Link>
+      <Link to={"/addCraft"} className="btn">
+        Add Item
+      </Link>
     </>
   );
 
   return (
-    <div className="navbar lg:px-24 text-white bg-[#795548]">
+    <div className="navbar shadow-xl lg:px-24 text-white bg-[#795548]">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
