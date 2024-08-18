@@ -23,7 +23,7 @@ export default function Banner() {
         spaceBetween={30}
         effect={"fade"}
         autoplay={{
-          delay: 2000,
+          delay: 3000,
           disableOnInteraction: false,
         }}
         navigation={true}
