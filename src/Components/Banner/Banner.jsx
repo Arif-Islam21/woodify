@@ -1,9 +1,9 @@
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import wooden1 from "../../../public/wood1.avif";
-import wooden2 from "../../../public/wood2.avif";
-import wooden3 from "../../../public/wooden3.avif";
+import wooden1 from "/wood1.avif";
+import wooden2 from "/wood2.avif";
+import wooden3 from "/wooden3.avif";
 
 // Import Swiper styles
 import "swiper/css";

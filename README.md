@@ -9,3 +9,7 @@ Extention Used:
 4. Meraki Ui
 5. Sweet Alert 2
 6. Swiper Slider
+
+2 Extra Section:
+
+1. Newsletter section
