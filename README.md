@@ -8,3 +8,4 @@ Extention Used:
 3. Daisy Ui
 4. Meraki Ui
 5. Sweet Alert 2
+6. Swiper Slider
