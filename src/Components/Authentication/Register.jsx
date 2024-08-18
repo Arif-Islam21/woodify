@@ -15,6 +15,26 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     const confirmPass = form.confirmPass.value;
+    // aplying regular expression
+    const regex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    if (!regex.test(password)) {
+      Swal.fire({
+        icon: "error",
+        title: "Enter Strong Password",
+        text: "Your Password is so weak",
+        footer: '<a href="#">Why do I have this issue?</a>',
+      });
+      return;
+    }
+    if (password !== confirmPass) {
+      Swal.fire({
+        icon: "error",
+        title: "Enter Same Password",
+        text: "Your Password is not same",
+        footer: '<a href="#">Why do I have this issue?</a>',
+      });
+      return;
+    }
 
     createUser(email, password)
       .then((result) => {
@@ -23,6 +43,7 @@ const Register = () => {
           text: "Congrats! You have created your account Successfully",
           icon: "success",
         });
+        console.log(result.user);
       })
       .catch((error) => {
         Swal.fire({
@@ -31,6 +52,7 @@ const Register = () => {
           text: "Something went wrong!",
           footer: '<a href="#">Why do I have this issue?</a>',
         });
+        console.log(error);
       });
     console.log(name, photo, email, password, confirmPass);
   };

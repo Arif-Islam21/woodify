@@ -53,6 +53,7 @@ const Login = () => {
     const password = form.password.value;
     loginUser(email, password)
       .then((result) => {
+        console.log(result);
         Swal.fire({
           title: "User Logged In Successfully",
           text: "Congrats! You have Logged In your account Successfully",
@@ -60,6 +61,7 @@ const Login = () => {
         });
       })
       .catch((error) => {
+        console.log(error);
         Swal.fire({
           icon: "error",
           title: "User not Logged In",
