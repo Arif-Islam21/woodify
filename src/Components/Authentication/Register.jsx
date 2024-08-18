@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import logo from "/wood.jpg";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -180,12 +181,12 @@ const Register = () => {
             </button>
 
             <div className="mt-6 text-center ">
-              <a
-                href="#"
+              <Link
+                to={"/login"}
                 className="text-sm text-blue-500 hover:underline dark:text-blue-400"
               >
                 Already have an account?
-              </a>
+              </Link>
             </div>
           </div>
         </form>
