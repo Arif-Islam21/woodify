@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import logo from "/wood.jpg";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -17,10 +18,19 @@ const Register = () => {
 
     createUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        Swal.fire({
+          title: "User Created Successfully",
+          text: "Congrats! You have created your account Successfully",
+          icon: "success",
+        });
       })
       .catch((error) => {
-        console.error(error);
+        Swal.fire({
+          icon: "error",
+          title: "User not created",
+          text: "Something went wrong!",
+          footer: '<a href="#">Why do I have this issue?</a>',
+        });
       });
     console.log(name, photo, email, password, confirmPass);
   };
