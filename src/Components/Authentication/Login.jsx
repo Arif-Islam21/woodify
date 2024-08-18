@@ -1,12 +1,24 @@
+import { useContext } from "react";
+import logo from "/wood.jpg";
+import { AuthContext } from "../../Provider/AuthProvider";
+
 const Login = () => {
+  const { signInWithGoogle } = useContext(AuthContext);
+
+  const googleLogin = () => {
+    signInWithGoogle()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   return (
     <div className="w-full max-w-sm my-12 p-6 m-auto mx-auto bg-white rounded-lg shadow-md dark:bg-gray-800">
       <div className="flex justify-center mx-auto">
-        <img
-          className="w-auto h-7 sm:h-8"
-          src="https://merakiui.com/images/logo.svg"
-          alt=""
-        />
+        <img className="w-auto h-7 sm:h-8" src={logo} alt="" />
       </div>
 
       <form className="mt-6">
@@ -61,6 +73,7 @@ const Login = () => {
 
       <div className="flex items-center mt-6 -mx-2">
         <button
+          onClick={googleLogin}
           type="button"
           className="flex items-center justify-center w-full px-6 py-2 mx-2 text-sm font-medium text-white transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:bg-blue-400 focus:outline-none"
         >
