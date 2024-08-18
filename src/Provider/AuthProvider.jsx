@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import auth from "../Firebase/Firebase.config";
 import {
   createUserWithEmailAndPassword,
@@ -35,6 +35,19 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithPopup(auth, githubProvider);
   };
+
+  useEffect(() => {
+    const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        setUser(currentUser);
+        console.log("current user", currentUser);
+      }
+    });
+
+    return () => {
+      unSubscribe();
+    };
+  }, []);
 
   const info = { createUser, signInWithGoogle, signInWithGithub, loginUser };
 
