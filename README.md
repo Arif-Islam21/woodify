@@ -1,7 +1,7 @@
 Website Name: Woodify
 Selected Category: Jute & wooden Crafts
 
-Extention Used:
+Library Used:
 
 1. React Tooltip
 2. Firebase Authentication
@@ -9,6 +9,7 @@ Extention Used:
 4. Meraki Ui
 5. Sweet Alert 2
 6. Swiper Slider
+7. React Spinner
 
 Two Extra Section:
 
