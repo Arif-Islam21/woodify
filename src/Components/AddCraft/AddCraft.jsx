@@ -1,4 +1,6 @@
 import React from "react";
+import { Navigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AddCraft = () => {
   const handleAddCraft = (e) => {
@@ -39,6 +41,11 @@ const AddCraft = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        Swal.fire({
+          icon: "success",
+          title: "Item Added",
+          text: "Your item has been added",
+        });
       });
   };
 

@@ -39,6 +39,9 @@ const Navbar = () => {
       <Link to={"/addCraft"} className="link link-hover">
         Add Item
       </Link>
+      <Link to={"/"} className="link link-hover">
+        My Art & Craft
+      </Link>
     </div>
   );
 

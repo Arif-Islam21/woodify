@@ -27,7 +27,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/addCraft",
-        element: <AddCraft></AddCraft>,
+        element: (
+          <PrivateRoute>
+            <AddCraft></AddCraft>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/allCraft",
@@ -38,6 +42,7 @@ const router = createBrowserRouter([
         ),
         loader: () => fetch("http://localhost:5000/craftData"),
       },
+      // https://woodify-server.onrender.com live link from render
       {
         path: "/allCraft/:id",
         element: (
