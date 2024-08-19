@@ -29,7 +29,17 @@ const AddCraft = () => {
       StockStatus,
     };
 
-    console.log(addItemData);
+    fetch("http://localhost:5000/craftData", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(addItemData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
   };
 
   return (
