@@ -6,6 +6,7 @@ import Register from "../Components/Authentication/Register";
 import AddCraft from "../Components/AddCraft/AddCraft";
 import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
 import AllCraft from "../Components/AllCraft/AllCraft";
+import ViewCraft from "../Components/AllCraft/ViewCraft";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,12 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: () => fetch("http://localhost:5000/craftData"),
+      },
+      {
+        path: "/allCraft/:id",
+        element: <ViewCraft></ViewCraft>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/craftData/${params.id}`),
       },
     ],
   },

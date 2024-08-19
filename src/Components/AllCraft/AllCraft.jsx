@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
 
 const AllCraft = () => {
@@ -60,9 +60,12 @@ const AllCraft = () => {
                 </td>
                 <td>$ {craft.Price}</td>
                 <th>
-                  <button className="btn btn-ghost bg-white text-themeColor text-2xl px-6">
+                  <Link
+                    to={`/allCraft/${craft._id}`}
+                    className="btn btn-ghost bg-white text-themeColor text-2xl px-6"
+                  >
                     <FaEye />
-                  </button>
+                  </Link>
                 </th>
               </tr>
             ))}
