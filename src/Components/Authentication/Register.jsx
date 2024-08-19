@@ -72,7 +72,7 @@ const Register = () => {
           <div className="flex items-center justify-center mt-6">
             <Link
               to={"/login"}
-              class="w-1/3 pb-4 font-medium text-center text-gray-500 capitalize border-b dark:border-gray-400 dark:text-gray-300"
+              className="w-1/3 pb-4 font-medium text-center text-gray-500 capitalize border-b dark:border-gray-400 dark:text-gray-300"
             >
               sign in
             </Link>
