@@ -29,17 +29,17 @@ const Navbar = () => {
   };
 
   const links = (
-    <>
-      <Link to={"/"} className="btn">
+    <div className="flex items-center gap-4">
+      <Link to={"/"} className="link link-hover">
         Home
       </Link>
-      <Link to={"/"} className="btn">
+      <Link to={"/"} className="link link-hover">
         Art & Craft
       </Link>
-      <Link to={"/addCraft"} className="btn">
+      <Link to={"/addCraft"} className="link link-hover">
         Add Item
       </Link>
-    </>
+    </div>
   );
 
   return (
@@ -112,12 +112,20 @@ const Navbar = () => {
           </div>
         )}
         {!user && (
-          <Link
-            to={"/login"}
-            className="btn btn-outline bg-white font-bold px-6 text-[#795548]"
-          >
-            Login
-          </Link>
+          <div className="flex gap-2">
+            <Link
+              to={"/login"}
+              className="btn btn-outline bg-white font-bold px-6 text-[#795548]"
+            >
+              Login
+            </Link>
+            <Link
+              to={"/register"}
+              className="btn btn-outline bg-white font-bold px-6 text-[#795548]"
+            >
+              Register
+            </Link>
+          </div>
         )}
       </div>
     </div>
