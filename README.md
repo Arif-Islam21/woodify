@@ -10,6 +10,7 @@ Extention Used:
 5. Sweet Alert 2
 6. Swiper Slider
 
-2 Extra Section:
+Two Extra Section:
 
 1. Newsletter section
+2. FAQ Section
