@@ -10,6 +10,7 @@ Library Used:
 5. Sweet Alert 2
 6. Swiper Slider
 7. React Spinner
+8. React Icons
 
 Two Extra Section:
 
