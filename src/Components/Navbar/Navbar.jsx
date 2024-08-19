@@ -29,7 +29,7 @@ const Navbar = () => {
   };
 
   const links = (
-    <div className="flex items-center gap-4">
+    <div className="flex items-center gap-1 w-full lg:gap-4">
       <Link to={"/"} className="link link-hover">
         Home
       </Link>
@@ -67,7 +67,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            className="menu z-50 menu-sm dropdown-content bg-themeFade rounded-box mt-3 w-52 p-2 shadow"
           >
             {links}
           </ul>

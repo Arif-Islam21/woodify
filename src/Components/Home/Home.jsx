@@ -1,4 +1,3 @@
-import AddCraft from "../AddCraft/AddCraft";
 import Banner from "../Banner/Banner";
 import CraftItems from "../CraftItems/CraftItems";
 import FAQ from "../NewsLetter/FAQ";

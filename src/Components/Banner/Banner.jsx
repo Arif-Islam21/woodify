@@ -19,7 +19,7 @@ export default function Banner() {
     <>
       <Swiper
         className="mySwiper"
-        style={{ width: "100vw", height: "60vh" }}
+        style={{ width: "98.5vw", height: "60vh" }}
         spaceBetween={30}
         effect={"fade"}
         autoplay={{

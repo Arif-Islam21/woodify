@@ -1,6 +1,17 @@
+import { useEffect, useState } from "react";
 import CraftCard from "./CraftCard";
 
 const CraftItems = () => {
+  const [craftData, setCraftData] = useState();
+
+  useEffect(() => {
+    fetch("http://localhost:5000/craftData")
+      .then((res) => res.json())
+      .then((data) => {
+        setCraftData(data);
+      });
+  }, []);
+
   return (
     <div className="bg-[#795548a9] w-full text-center mx-auto py-6 text-white">
       <div>
@@ -12,10 +23,9 @@ const CraftItems = () => {
         </p>
       </div>
       <div className="py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-[10vw]">
-        <CraftCard></CraftCard>
-        <CraftCard></CraftCard>
-        <CraftCard></CraftCard>
-        <CraftCard></CraftCard>
+        {craftData?.map((craft) => (
+          <CraftCard key={craft._id} craft={craft}></CraftCard>
+        ))}
       </div>
     </div>
   );
