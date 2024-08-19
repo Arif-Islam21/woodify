@@ -33,7 +33,7 @@ const Navbar = () => {
       <Link to={"/"} className="link link-hover">
         Home
       </Link>
-      <Link to={"/"} className="link link-hover">
+      <Link to={"/allCraft"} className="link link-hover">
         Art & Craft
       </Link>
       <Link to={"/addCraft"} className="link link-hover">

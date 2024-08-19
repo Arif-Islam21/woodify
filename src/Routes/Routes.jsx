@@ -5,6 +5,7 @@ import Login from "../Components/Authentication/Login";
 import Register from "../Components/Authentication/Register";
 import AddCraft from "../Components/AddCraft/AddCraft";
 import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
+import AllCraft from "../Components/AllCraft/AllCraft";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,15 @@ const router = createBrowserRouter([
             <AddCraft></AddCraft>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/allCraft",
+        element: (
+          <PrivateRoute>
+            <AllCraft></AllCraft>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("http://localhost:5000/craftData"),
       },
     ],
   },
