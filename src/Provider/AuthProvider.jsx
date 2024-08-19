@@ -47,6 +47,7 @@ const AuthProvider = ({ children }) => {
       if (currentUser) {
         setUser(currentUser);
         console.log(currentUser);
+        setLoading(false);
       } else {
         setUser(null);
       }
@@ -64,6 +65,7 @@ const AuthProvider = ({ children }) => {
     signInWithGithub,
     loginUser,
     logOut,
+    loading,
   };
 
   return <AuthContext.Provider value={info}>{children}</AuthContext.Provider>;

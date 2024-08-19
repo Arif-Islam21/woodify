@@ -4,6 +4,7 @@ import Home from "../Components/Home/Home";
 import Login from "../Components/Authentication/Login";
 import Register from "../Components/Authentication/Register";
 import AddCraft from "../Components/AddCraft/AddCraft";
+import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/addCraft",
-        element: <AddCraft></AddCraft>,
+        element: (
+          <PrivateRoute>
+            <AddCraft></AddCraft>
+          </PrivateRoute>
+        ),
       },
     ],
   },
