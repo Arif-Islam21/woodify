@@ -1,6 +1,37 @@
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
-const CraftCard = ({ craft }) => {
+const CraftCard = ({ craft, setCraftData, craftData }) => {
+  const handleDelete = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/craftData/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
+            console.log(_id);
+
+            const remaining = craftData.filter((craft) => craft._id !== _id);
+            setCraftData(remaining);
+          });
+      }
+    });
+  };
+
   const {
     _id,
     userName,
@@ -53,7 +84,10 @@ const CraftCard = ({ craft }) => {
       />
 
       <div className="flex items-center justify-between px-4 py-2 bg-[#cf95803c]">
-        <button className="px-2 btn py-1 border-none font-bold hover:text-white uppercase transition-colors duration-300 transform bg-red-400 text-white rounded hover:bg-[#795548f3]">
+        <button
+          onClick={() => handleDelete(_id)}
+          className="px-2 btn py-1 border-none font-bold hover:text-white uppercase transition-colors duration-300 transform bg-red-400 text-white rounded hover:bg-[#795548f3]"
+        >
           Delete
         </button>
         <Link

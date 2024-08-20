@@ -12,7 +12,7 @@ const CraftItems = () => {
       .then((data) => {
         setCraftData(data);
       });
-  }, []);
+  }, [user]);
 
   return (
     <div className="bg-[#795548a9] w-full text-center mx-auto py-6 text-white">
@@ -26,7 +26,12 @@ const CraftItems = () => {
       </div>
       <div className="py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-[10vw]">
         {craftData?.map((craft) => (
-          <CraftCard key={craft._id} craft={craft}></CraftCard>
+          <CraftCard
+            key={craft._id}
+            craft={craft}
+            craftData={craftData}
+            setCraftData={setCraftData}
+          ></CraftCard>
         ))}
       </div>
     </div>
