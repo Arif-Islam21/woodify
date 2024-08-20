@@ -46,20 +46,6 @@ const Navbar = () => {
     </div>
   );
 
-  useEffect(() => {
-    fetch(`${import.meta.env.VITE_SERVER_LINK}/userData`)
-      .then((res) => res.json())
-      .then((data) => {
-        {
-          data?.map((usr) => {
-            usr.email === user?.email
-              ? setUserImg(usr)
-              : setUserImg("No image Found");
-          });
-        }
-      });
-  }, []);
-
   return (
     <div className="navbar shadow-xl lg:px-24 text-white bg-[#795548]">
       <div className="navbar-start">
@@ -114,9 +100,9 @@ const Navbar = () => {
               <Tooltip id="my-tooltip" place="left" />
               <img
                 data-tooltip-id="my-tooltip"
-                data-tooltip-content={user?.displayName || userImg.name}
+                data-tooltip-content={user?.displayName || "Name not found"}
                 alt={user?.email || userImg.name}
-                src={user?.photoURL || userImg.photo}
+                src={user?.photoURL || "photo not found"}
               />{" "}
             </div>
             <ul

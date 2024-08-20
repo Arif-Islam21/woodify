@@ -8,11 +8,13 @@ import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
 import AllCraft from "../Components/AllCraft/AllCraft";
 import ViewCraft from "../Components/AllCraft/ViewCraft";
 import MyArt from "../Components/MyArt/MyArt";
+import ErrorElement from "../Components/ErrorElement/ErrorElement";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <ErrorElement></ErrorElement>,
     children: [
       {
         path: "/",

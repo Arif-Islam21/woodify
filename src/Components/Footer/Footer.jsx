@@ -12,7 +12,6 @@ const Footer = () => {
 
           <div className="flex flex-wrap justify-center mt-6 -mx-4">
             <a
-              href="#"
               className="mx-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
               aria-label="Reddit"
             >
@@ -21,7 +20,6 @@ const Footer = () => {
             </a>
 
             <a
-              href="#"
               className="mx-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
               aria-label="Reddit"
             >
@@ -30,7 +28,6 @@ const Footer = () => {
             </a>
 
             <a
-              href="#"
               className="mx-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
               aria-label="Reddit"
             >
@@ -39,7 +36,6 @@ const Footer = () => {
             </a>
 
             <a
-              href="#"
               className="mx-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
               aria-label="Reddit"
             >
@@ -48,7 +44,6 @@ const Footer = () => {
             </a>
 
             <a
-              href="#"
               className="mx-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
               aria-label="Reddit"
             >
@@ -62,12 +57,11 @@ const Footer = () => {
 
         <div className="flex flex-col items-center sm:flex-row sm:justify-between">
           <p className="text-sm text-gray-500 dark:text-gray-300">
-            © Copyright 2021. All Rights Reserved.
+            © Copyright 2021. All Rights Reserved By Woodify.
           </p>
 
           <div className="flex -mx-2">
             <a
-              href="#"
               className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
               aria-label="Reddit"
             >
@@ -82,7 +76,6 @@ const Footer = () => {
             </a>
 
             <a
-              href="#"
               className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
               aria-label="Facebook"
             >
@@ -97,7 +90,6 @@ const Footer = () => {
             </a>
 
             <a
-              href="#"
               className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
               aria-label="Github"
             >
