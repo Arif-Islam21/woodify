@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const AddCraft = () => {
-  const { user, setLoading } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   const handleAddCraft = (e) => {
     e.preventDefault();
@@ -34,7 +34,6 @@ const AddCraft = () => {
       StockStatus,
       creatorEmail,
     };
-    setLoading(true);
 
     fetch(`${import.meta.env.VITE_SERVER_LINK}/craftData`, {
       method: "POST",
@@ -46,7 +45,6 @@ const AddCraft = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setLoading(false);
         Swal.fire({
           icon: "success",
           title: "Item Added",

@@ -9,7 +9,7 @@ import Swal from "sweetalert2";
 // https://ibb.co/nkQRFF3
 // https://i.postimg.cc/g0c1ZjL6/wood4.jpg
 const Register = () => {
-  const { createUser, setLoading } = useContext(AuthContext);
+  const { createUser } = useContext(AuthContext);
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -49,7 +49,6 @@ const Register = () => {
           text: "Congrats! You have created your account Successfully",
           icon: "success",
         });
-        setLoading(true);
 
         fetch(`http://localhost:5000/userData`, {
           method: "POST",
@@ -61,7 +60,6 @@ const Register = () => {
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
-            setLoading(false);
           });
       })
       .catch((error) => {

@@ -3,16 +3,14 @@ import CraftCard from "./CraftCard";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const CraftItems = () => {
-  const { user, setLoading } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [craftData, setCraftData] = useState();
 
   useEffect(() => {
-    setLoading(true);
     fetch(`${import.meta.env.VITE_SERVER_LINK}/craftData`)
       .then((res) => res.json())
       .then((data) => {
         setCraftData(data);
-        setLoading(false);
       });
   }, []);
 

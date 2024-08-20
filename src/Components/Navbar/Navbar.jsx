@@ -7,7 +7,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Navbar = () => {
-  const { user, logOut, setLoading } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   const [userImg, setUserImg] = useState();
 
   const handleLogOut = () => {
@@ -47,7 +47,6 @@ const Navbar = () => {
   );
 
   useEffect(() => {
-    setLoading(true);
     fetch(`${import.meta.env.VITE_SERVER_LINK}/userData`)
       .then((res) => res.json())
       .then((data) => {
@@ -58,7 +57,6 @@ const Navbar = () => {
               : setUserImg("No image Found");
           });
         }
-        setLoading(false);
       });
   }, []);
 
