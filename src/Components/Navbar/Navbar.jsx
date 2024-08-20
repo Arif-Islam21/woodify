@@ -2,12 +2,13 @@ import logo from "/wood.jpg";
 import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [userImg, setUserImg] = useState();
 
   const handleLogOut = () => {
     logOut()
@@ -44,6 +45,20 @@ const Navbar = () => {
       </Link>
     </div>
   );
+
+  useEffect(() => {
+    fetch("http://localhost:5000/userData")
+      .then((res) => res.json())
+      .then((data) => {
+        {
+          data?.map((usr) => {
+            usr.email === user?.email
+              ? setUserImg(usr)
+              : setUserImg("No image Found");
+          });
+        }
+      });
+  }, []);
 
   return (
     <div className="navbar shadow-xl lg:px-24 text-white bg-[#795548]">
@@ -99,9 +114,9 @@ const Navbar = () => {
               <Tooltip id="my-tooltip" place="left" />
               <img
                 data-tooltip-id="my-tooltip"
-                data-tooltip-content={user?.displayName || "Name not found"}
-                alt={user?.email || "photo not found"}
-                src={user?.photoURL}
+                data-tooltip-content={user?.displayName || userImg.name}
+                alt={user?.email || userImg.name}
+                src={user?.photoURL || userImg.photo}
               />{" "}
             </div>
             <ul
