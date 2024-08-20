@@ -12,6 +12,8 @@ Library Used:
 7. React Spinner
 8. React Icons
 9. React Awesome Reveal
+10. Lotte React
+11. React simple typewritter
 
 Two Extra Section:
 

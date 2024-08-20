@@ -9,6 +9,7 @@ import AllCraft from "../Components/AllCraft/AllCraft";
 import ViewCraft from "../Components/AllCraft/ViewCraft";
 import MyArt from "../Components/MyArt/MyArt";
 import ErrorElement from "../Components/ErrorElement/ErrorElement";
+import AllCraftDetail from "../Components/AllCraft/AllCraftDetail";
 
 const router = createBrowserRouter([
   {
@@ -68,7 +69,7 @@ const router = createBrowserRouter([
         path: "/allCraft/:id",
         element: (
           <PrivateRoute>
-            <ViewCraft></ViewCraft>
+            <AllCraftDetail></AllCraftDetail>
           </PrivateRoute>
         ),
         loader: ({ params }) =>

@@ -55,7 +55,7 @@ const CraftCard = ({ craft, setCraftData, craftData }) => {
 
       <div className="flex items-center justify-end px-4 py-2 bg-[#cf95803c]">
         <Link
-          to={`/myCraftItems/${_id}`}
+          to={`/allCraft/${_id}`}
           className="px-2 btn py-1 border-none font-bold text-[#795548] hover:text-white uppercase transition-colors duration-300 transform bg-white rounded hover:bg-[#795548f3]"
         >
           View Details
