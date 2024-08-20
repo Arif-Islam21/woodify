@@ -4,15 +4,17 @@ import CraftCard from "../CraftItems/CraftCard";
 import MyCart from "./MyCart";
 
 const MyArt = () => {
-  const { user } = useContext(AuthContext);
+  const { user, setLoading } = useContext(AuthContext);
   const [craftData, setCraftData] = useState();
 
   useEffect(() => {
+    setLoading(true);
     fetch(`${import.meta.env.VITE_SERVER_LINK}/craftData`)
       .then((res) => res.json())
       .then((data) => {
         const mines = data.filter((item) => item.creatorEmail === user?.email);
         setCraftData(mines);
+        setLoading(false);
       });
   }, []);
 

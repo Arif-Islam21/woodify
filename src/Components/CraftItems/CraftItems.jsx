@@ -3,14 +3,16 @@ import CraftCard from "./CraftCard";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const CraftItems = () => {
-  const { user } = useContext(AuthContext);
+  const { user, setLoading } = useContext(AuthContext);
   const [craftData, setCraftData] = useState();
 
   useEffect(() => {
+    setLoading(true);
     fetch(`${import.meta.env.VITE_SERVER_LINK}/craftData`)
       .then((res) => res.json())
       .then((data) => {
         setCraftData(data);
+        setLoading(false);
       });
   }, []);
 
@@ -25,7 +27,7 @@ const CraftItems = () => {
         </p>
       </div>
       <div className="py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-[10vw]">
-        {craftData?.map((craft) => (
+        {craftData?.slice(0, 6).map((craft) => (
           <CraftCard
             key={craft._id}
             craft={craft}
