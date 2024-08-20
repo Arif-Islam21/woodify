@@ -8,6 +8,7 @@ import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
 import AllCraft from "../Components/AllCraft/AllCraft";
 import ViewCraft from "../Components/AllCraft/ViewCraft";
 import CraftItems from "../Components/CraftItems/CraftItems";
+import MyArt from "../Components/MyArt/MyArt";
 
 const router = createBrowserRouter([
   {
@@ -38,7 +39,7 @@ const router = createBrowserRouter([
         path: "/myCraftItems",
         element: (
           <PrivateRoute>
-            <CraftItems></CraftItems>
+            <MyArt></MyArt>
           </PrivateRoute>
         ),
       },

@@ -1,7 +1,38 @@
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const CraftCard = ({ craft, setCraftData, craftData }) => {
+const MyCart = ({ craft, setCraftData, craftData }) => {
+  const handleDelete = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/craftData/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+              const remaining = craftData.filter((craft) => craft._id !== _id);
+              setCraftData(remaining);
+            }
+          });
+      }
+    });
+  };
+
   const {
     _id,
     userName,
@@ -53,7 +84,13 @@ const CraftCard = ({ craft, setCraftData, craftData }) => {
         alt={category}
       />
 
-      <div className="flex items-center justify-end px-4 py-2 bg-[#cf95803c]">
+      <div className="flex items-center justify-between px-4 py-2 bg-[#cf95803c]">
+        <button
+          onClick={() => handleDelete(_id)}
+          className="px-2 btn py-1 border-none font-bold hover:text-white uppercase transition-colors duration-300 transform bg-red-400 text-white rounded hover:bg-[#795548f3]"
+        >
+          Delete
+        </button>
         <Link
           to={`/myCraftItems/${_id}`}
           className="px-2 btn py-1 border-none font-bold text-[#795548] hover:text-white uppercase transition-colors duration-300 transform bg-white rounded hover:bg-[#795548f3]"
@@ -65,4 +102,4 @@ const CraftCard = ({ craft, setCraftData, craftData }) => {
   );
 };
 
-export default CraftCard;
+export default MyCart;

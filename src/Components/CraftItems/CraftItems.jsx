@@ -10,8 +10,7 @@ const CraftItems = () => {
     fetch(`http://localhost:5000/craftData`)
       .then((res) => res.json())
       .then((data) => {
-        const mines = data.filter((item) => item.creatorEmail === user?.email);
-        setCraftData(mines);
+        setCraftData(data);
       });
   }, []);
 
