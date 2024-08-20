@@ -35,7 +35,7 @@ const AddCraft = () => {
       creatorEmail,
     };
 
-    fetch("http://localhost:5000/craftData", {
+    fetch(`${import.meta.env.VITE_SERVER_LINK}/craftData`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

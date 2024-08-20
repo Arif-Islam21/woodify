@@ -7,7 +7,7 @@ const CraftItems = () => {
   const [craftData, setCraftData] = useState();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/craftData`)
+    fetch(`${import.meta.env.VITE_SERVER_LINK}/craftData`)
       .then((res) => res.json())
       .then((data) => {
         setCraftData(data);

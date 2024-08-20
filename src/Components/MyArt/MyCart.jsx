@@ -13,7 +13,7 @@ const MyCart = ({ craft, setCraftData, craftData }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/craftData/${_id}`, {
+        fetch(`${import.meta.env.VITE_SERVER_LINK}/craftData/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

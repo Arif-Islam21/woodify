@@ -8,7 +8,7 @@ const MyArt = () => {
   const [craftData, setCraftData] = useState();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/craftData`)
+    fetch(`${import.meta.env.VITE_SERVER_LINK}/craftData`)
       .then((res) => res.json())
       .then((data) => {
         const mines = data.filter((item) => item.creatorEmail === user?.email);

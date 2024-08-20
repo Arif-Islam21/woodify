@@ -47,7 +47,7 @@ const Navbar = () => {
   );
 
   useEffect(() => {
-    fetch("http://localhost:5000/userData")
+    fetch(`${import.meta.env.VITE_SERVER_LINK}/userData`)
       .then((res) => res.json())
       .then((data) => {
         {

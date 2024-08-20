@@ -7,7 +7,6 @@ import AddCraft from "../Components/AddCraft/AddCraft";
 import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
 import AllCraft from "../Components/AllCraft/AllCraft";
 import ViewCraft from "../Components/AllCraft/ViewCraft";
-import CraftItems from "../Components/CraftItems/CraftItems";
 import MyArt from "../Components/MyArt/MyArt";
 
 const router = createBrowserRouter([
@@ -51,7 +50,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/craftData/${params.id}`),
+          fetch(`${import.meta.env.VITE_SERVER_LINK}/craftData/${params.id}`),
       },
       {
         path: "/allCraft",
@@ -60,7 +59,7 @@ const router = createBrowserRouter([
             <AllCraft></AllCraft>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/craftData"),
+        loader: () => fetch(`${import.meta.env.VITE_SERVER_LINK}/craftData`),
       },
       // https://woodify-server.onrender.com live link from render
       {
@@ -71,7 +70,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/craftData/${params.id}`),
+          fetch(`${import.meta.env.VITE_SERVER_LINK}/craftData/${params.id}`),
       },
     ],
   },

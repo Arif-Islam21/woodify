@@ -49,7 +49,7 @@ const Register = () => {
           icon: "success",
         });
 
-        fetch("http://localhost:5000/userData", {
+        fetch(`http://localhost:5000/userData`, {
           method: "POST",
           headers: {
             "content-type": "application/json",
