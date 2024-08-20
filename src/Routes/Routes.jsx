@@ -8,7 +8,6 @@ import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
 import AllCraft from "../Components/AllCraft/AllCraft";
 import ViewCraft from "../Components/AllCraft/ViewCraft";
 import CraftItems from "../Components/CraftItems/CraftItems";
-import CraftCard from "../Components/CraftItems/CraftCard";
 
 const router = createBrowserRouter([
   {
@@ -36,12 +35,14 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/craftItems",
+        path: "/myCraftItems",
         element: <CraftItems></CraftItems>,
       },
       {
-        path: "/craftItems/:id",
-        element: <CraftCard></CraftCard>,
+        path: "/myCraftItems/:id",
+        element: <ViewCraft></ViewCraft>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/craftData/${params.id}`),
       },
       {
         path: "/allCraft",

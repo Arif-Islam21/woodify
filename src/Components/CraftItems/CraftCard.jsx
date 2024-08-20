@@ -1,5 +1,8 @@
+import { Link } from "react-router-dom";
+
 const CraftCard = ({ craft }) => {
   const {
+    _id,
     userName,
     email,
     craft_name,
@@ -18,9 +21,26 @@ const CraftCard = ({ craft }) => {
         <h1 className="text-xl font-bold font-rancho text-gray-800 uppercase dark:text-white">
           {craft_name}
         </h1>
-        <p className="mt-1 text-sm text-gray-200 dark:text-gray-200">
-          {shortDescription}
-        </p>
+        <div className="flex font-mono gap-2 justify-between">
+          <p>
+            <span className="font-semibold">Price: </span>
+            {Price}tk
+          </p>
+          <p>
+            <span className="font-semibold">Status: </span>
+            {StockStatus}
+          </p>
+        </div>
+        <div className="flex font-mono gap-2 justify-between">
+          <p>
+            <span className="font-semibold">Customization: </span>
+            {customization}
+          </p>
+          <p>
+            <span className="font-semibold">Rating: </span>
+            {rating}/10
+          </p>
+        </div>
       </div>
 
       <img
@@ -32,10 +52,16 @@ const CraftCard = ({ craft }) => {
         alt={category}
       />
 
-      <div className="flex items-center justify-end px-4 py-2 bg-[#cf95803c]">
-        <button className="px-2 btn py-1 border-none font-bold text-[#795548] hover:text-white uppercase transition-colors duration-300 transform bg-white rounded hover:bg-[#795548f3]">
-          View Details
+      <div className="flex items-center justify-between px-4 py-2 bg-[#cf95803c]">
+        <button className="px-2 btn py-1 border-none font-bold hover:text-white uppercase transition-colors duration-300 transform bg-red-400 text-white rounded hover:bg-[#795548f3]">
+          Delete
         </button>
+        <Link
+          to={`/myCraftItems/${_id}`}
+          className="px-2 btn py-1 border-none font-bold text-[#795548] hover:text-white uppercase transition-colors duration-300 transform bg-white rounded hover:bg-[#795548f3]"
+        >
+          View Details
+        </Link>
       </div>
     </div>
   );

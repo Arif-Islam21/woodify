@@ -39,7 +39,7 @@ const Navbar = () => {
       <Link to={"/addCraft"} className="link link-hover">
         Add Item
       </Link>
-      <Link to={"/"} className="link link-hover">
+      <Link to={"/myCraftItems"} className="link link-hover">
         My Art & Craft
       </Link>
     </div>
@@ -106,7 +106,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu bg-[#795548b7] menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu bg-[#795548b7] menu-sm dropdown-content rounded-box z-50 mt-3 w-52 p-2 shadow"
             >
               <li>
                 <button onClick={handleLogOut}>Logout</button>
