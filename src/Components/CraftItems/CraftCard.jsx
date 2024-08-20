@@ -18,15 +18,16 @@ const CraftCard = ({ craft, setCraftData, craftData }) => {
         })
           .then((res) => res.json())
           .then((data) => {
-            Swal.fire({
-              title: "Deleted!",
-              text: "Your file has been deleted.",
-              icon: "success",
-            });
-            console.log(_id);
-
-            const remaining = craftData.filter((craft) => craft._id !== _id);
-            setCraftData(remaining);
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+              const remaining = craftData.filter((craft) => craft._id !== _id);
+              setCraftData(remaining);
+            }
           });
       }
     });

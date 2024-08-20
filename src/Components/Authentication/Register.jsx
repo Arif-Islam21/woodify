@@ -4,6 +4,9 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
+// https://ibb.co/qdGvBg0
+// https://ibb.co/gdnYZnf
+// https://ibb.co/nkQRFF3
 const Register = () => {
   const { createUser } = useContext(AuthContext);
 
@@ -15,6 +18,8 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     const confirmPass = form.confirmPass.value;
+
+    const registerData = { name, photo, email, password };
     // aplying regular expression
     const regex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     if (!regex.test(password)) {
@@ -43,16 +48,27 @@ const Register = () => {
           text: "Congrats! You have created your account Successfully",
           icon: "success",
         });
-        console.log(result.user);
+
+        fetch("http://localhost:5000/userData", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(registerData),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          });
       })
       .catch((error) => {
         Swal.fire({
           icon: "error",
           title: "User not created",
-          text: "Something went wrong!",
+          text: "Something went wrong",
           footer: '<a href="#">Why do I have this issue?</a>',
         });
-        console.log(error);
+        console.error(error);
       });
     console.log(name, photo, email, password, confirmPass);
   };
