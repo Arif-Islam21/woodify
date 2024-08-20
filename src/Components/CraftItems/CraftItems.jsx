@@ -10,12 +10,13 @@ const CraftItems = () => {
     fetch(`http://localhost:5000/craftData`)
       .then((res) => res.json())
       .then((data) => {
-        setCraftData(data);
+        const mines = data.filter((item) => item.creatorEmail === user?.email);
+        setCraftData(mines);
       });
-  }, [user]);
+  }, []);
 
   return (
-    <div className="bg-[#795548a9] w-full text-center mx-auto py-6 text-white">
+    <div className="bg-[#795548a9] min-h-screen w-full text-center mx-auto py-6 text-white">
       <div>
         <h2 className="text-3xl font-bold font-rancho">Wooden Craft</h2>
         <p className="text-sm max-w-xl mx-auto">
