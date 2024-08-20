@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Navigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const AddCraft = () => {
+  const { user } = useContext(AuthContext);
+
   const handleAddCraft = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -17,6 +20,7 @@ const AddCraft = () => {
     const customization = form.customization.value;
     const processing_time = form.processing_time.value;
     const StockStatus = form.StockStatus.value;
+    const creatorEmail = user.email;
     const addItemData = {
       userName,
       email,
@@ -29,6 +33,7 @@ const AddCraft = () => {
       customization,
       processing_time,
       StockStatus,
+      creatorEmail,
     };
 
     fetch("http://localhost:5000/craftData", {

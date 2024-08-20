@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import CraftCard from "./CraftCard";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const CraftItems = () => {
+  const { user } = useContext(AuthContext);
   const [craftData, setCraftData] = useState();
 
   useEffect(() => {
-    fetch("http://localhost:5000/craftData")
+    fetch(`http://localhost:5000/craftData`)
       .then((res) => res.json())
       .then((data) => {
         setCraftData(data);
