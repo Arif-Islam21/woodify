@@ -11,6 +11,7 @@ Library Used:
 6. Swiper Slider
 7. React Spinner
 8. React Icons
+9. React Awesome Reveal
 
 Two Extra Section:
 

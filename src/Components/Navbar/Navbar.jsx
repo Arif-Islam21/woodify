@@ -5,10 +5,24 @@ import { Link } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import avater from "/download.png";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [userImg, setUserImg] = useState();
+  // const localTheme = localStorage.getItem("theme");
+  // console.log(localTheme);
+  // const [theme, setTheme] = useState(localTheme);
+
+  // useEffect(() => {
+  //   document.querySelector("html").setAttribute("data-theme", theme);
+  //   localStorage.setItem("theme", theme);
+  // }, [theme]);
+
+  // const toggleTheme = () => {
+  //   setTheme(theme == "light" ? "dark" : "light");
+  //   console.log(theme);
+  // };
 
   const handleLogOut = () => {
     logOut()
@@ -91,28 +105,30 @@ const Navbar = () => {
       </div>
       <div className="navbar navbar-end">
         {user && (
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-ghost dropdown dropdown-end btn-circle avatar"
-          >
-            <div className="w-10 rounded-full">
-              <Tooltip id="my-tooltip" place="left" />
-              <img
-                data-tooltip-id="my-tooltip"
-                data-tooltip-content={user?.displayName || "Name not found"}
-                alt={user?.email || userImg.name}
-                src={user?.photoURL || "photo not found"}
-              />{" "}
-            </div>
-            <ul
+          <div className="flex items-center gap-6">
+            <div
               tabIndex={0}
-              className="menu bg-[#795548b7] menu-sm dropdown-content rounded-box z-50 mt-3 w-52 p-2 shadow"
+              role="button"
+              className="btn btn-ghost dropdown dropdown-end btn-circle avatar"
             >
-              <li>
-                <button onClick={handleLogOut}>Logout</button>
-              </li>
-            </ul>
+              <div className="w-10 rounded-full">
+                <Tooltip id="my-tooltip" place="left" />
+                <img
+                  data-tooltip-id="my-tooltip"
+                  data-tooltip-content={user?.displayName || "Name not found"}
+                  alt={user?.email || userImg.name}
+                  src={user?.photoURL || avater}
+                />{" "}
+              </div>
+              <ul
+                tabIndex={0}
+                className="menu bg-[#795548b7] menu-sm dropdown-content rounded-box z-50 mt-3 w-52 p-2 shadow"
+              >
+                <li>
+                  <button onClick={handleLogOut}>Logout</button>
+                </li>
+              </ul>
+            </div>
           </div>
         )}
         {!user && (
