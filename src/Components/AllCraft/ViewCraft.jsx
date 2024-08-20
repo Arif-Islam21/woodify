@@ -8,6 +8,7 @@ const ViewCraft = () => {
 
   const artData = useLoaderData();
   const {
+    _id,
     userName,
     email,
     craft_name,
@@ -51,7 +52,7 @@ const ViewCraft = () => {
       creatorEmail,
     };
 
-    fetch(`${import.meta.env.VITE_SERVER_LINK}/craftData`, {
+    fetch(`${import.meta.env.VITE_SERVER_LINK}/craftData/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -63,8 +64,8 @@ const ViewCraft = () => {
         console.log(data);
         Swal.fire({
           icon: "success",
-          title: "Item Added",
-          text: "Your item has been added",
+          title: "Item Updated",
+          text: "Your item has been updated",
         });
       });
   };
