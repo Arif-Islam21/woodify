@@ -6,6 +6,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import avater from "/download.png";
+import { Typewriter } from "react-simple-typewriter";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -95,7 +96,15 @@ const Navbar = () => {
           />
           <div>
             <h4 className="text-3xl hidden lg:block font-bold font-rancho">
-              Woodify
+              <Typewriter
+                words={["Woodify"]}
+                loop={false}
+                cursor
+                cursorStyle="_"
+                typeSpeed={70}
+                deleteSpeed={50}
+                delaySpeed={1000}
+              />
             </h4>
           </div>
         </Link>
