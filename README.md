@@ -1,5 +1,8 @@
 Website Name: Woodify
 Selected Category: Jute & wooden Crafts
+Live Site Url: https://woodify-b7999.web.app/
+Backend Deployed on Render due to faceing issue in vercel
+Backend Url : https://woodify-server.onrender.com
 
 Library Used:
 

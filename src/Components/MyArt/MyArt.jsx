@@ -13,6 +13,7 @@ const MyArt = () => {
       .then((res) => res.json())
       .then((data) => {
         const mines = data.filter((item) => item.creatorEmail === user?.email);
+
         setCraftData(mines);
       });
   }, []);
@@ -40,8 +41,9 @@ const MyArt = () => {
           </p>
         </Fade>
       </div>
+
       <Fade cascade duration={2500} delay={700}>
-        <div className="py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-[10vw]">
+        <div className="py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:px-[10vw]">
           {craftData?.map((craft) => (
             <MyCart
               key={craft._id}
