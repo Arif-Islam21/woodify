@@ -4,6 +4,14 @@ Live Site Url: https://woodify-b7999.web.app/
 Backend Deployed on Render due to faceing issue in vercel
 Backend Url : https://woodify-server.onrender.com
 
+Website Feature:
+
+1. Responsive for mobile, tablet and desktop
+2. Dynamic data used to build this website
+3. Firebase authentication used
+4. Dark theme applied
+5. Private route and other features available
+
 Library Used:
 
 1. React Tooltip

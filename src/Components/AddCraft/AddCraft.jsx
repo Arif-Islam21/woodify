@@ -284,7 +284,7 @@ const AddCraft = () => {
             </div>
 
             <div className=" mt-6">
-              <button className="px-8 w-full py-2.5 leading-5 text-themeColor transition-colors duration-300 transform bg-white font-bold rounded-md hover:bg-gray-600 ">
+              <button className="px-8 w-full py-2.5 leading-5 text-white bg-themeColor transition-colors duration-300 transform dark:text-white font-bold rounded-md hover:bg-gray-600 ">
                 Add Craft
               </button>
             </div>

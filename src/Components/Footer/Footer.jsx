@@ -7,11 +7,11 @@ const Footer = () => {
     <footer className="bg-white dark:bg-[#795548]">
       <div className="container px-6 py-8 mx-auto">
         <div className="flex flex-col items-center text-center">
-          <a className="flex items-center gap-4">
-            <Rotate>
+          <a className="flex flex-col lg:flex-row items-center gap-4">
+            <div>
               <img className="w-auto h-7" src={logo} alt="" />
-            </Rotate>
-            <h2 className="text-3xl font-bold text-white">
+            </div>
+            <h2 className="text-3xl font-bold text-themeColor dark:text-white">
               <Typewriter
                 words={["Woodify"]}
                 loop={false}
