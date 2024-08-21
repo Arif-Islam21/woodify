@@ -50,7 +50,7 @@ const Register = () => {
           icon: "success",
         });
 
-        fetch(`http://localhost:5000/userData`, {
+        fetch(`${import.meta.env.VITE_SERVER_LINK}/userData`, {
           method: "POST",
           headers: {
             "content-type": "application/json",
